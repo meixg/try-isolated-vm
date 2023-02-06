@@ -10,5 +10,19 @@ const globalUtils = {
                 global.loggerFatal.apply(0, [msg])
             }
         }
+    },
+    cache: {
+        get(key) {
+            if (typeof global === 'object' && global.getCache) {
+                return global.getCache.apply(0, [key])
+            }
+
+            return undefined
+        },
+        set(key, value) {
+            if (typeof global === 'object' && global.setCache) {
+                global.setCache.apply(0, [key, value])
+            }
+        }
     }
 }
