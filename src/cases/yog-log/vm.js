@@ -5,8 +5,7 @@ const { loadAllCodes } = require('../../utils/load-all-codes');
 
 (async () => {
     const codes = await loadAllCodes()
-    const codeParam = codes.map(code => ({code}))
-    const snapshot = new ivm.Isolate.createSnapshot(codeParam)
+    const snapshot = new ivm.Isolate.createSnapshot(codes)
     const isolate = new ivm.Isolate({snapshot})
     const context = isolate.createContextSync()
 

@@ -12,6 +12,7 @@
   "dependencies": {
     "@baidu/node-shared-cache": "^1.8.6",
     "isolated-vm": "^4.4.2",
+    "ws": "^8.12.0",
     "yog-log": "^0.1.7"
   }
 }

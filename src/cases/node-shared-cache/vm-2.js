@@ -6,8 +6,7 @@ const nodeSharedCache = require('@baidu/node-shared-cache');
 
 (async () => {
     const codes = await loadAllCodes()
-    const codeParam = codes.map(code => ({code}))
-    const snapshot = new ivm.Isolate.createSnapshot(codeParam)
+    const snapshot = new ivm.Isolate.createSnapshot(codes)
     const isolate = new ivm.Isolate({snapshot})
     const context = isolate.createContextSync()
     context.global.setSync('global', context.global.derefInto())
