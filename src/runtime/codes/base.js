@@ -58,7 +58,7 @@ class Module {
 const __LOADER__ = {
     source: {},
     builtinModuleRequire(id) {
-        const m = this.source[id];
+        const m = __LOADER__.source[id];
         if (!m) {
             throw Error(`internal module ${id} not found`);
         }
@@ -83,9 +83,9 @@ const __LOADER__ = {
     }
 };
 
-__LOADER__.source['/xxx/xxx/a'] = new Module('/xxx/xxx/a', function (module, exports, require) {});
-__LOADER__.source['/xxx/xxx/b'] = new Module('/xxx/xxxx/b', function (module, exports, require) {});
-__LOADER__.source['/xxx/xxx/c'] = new Module('/xxx/xxxx/c', function (module, exports, require) {});
-__LOADER__.source['/xxx/xxx/d'] = new Module('/xxx/xxxx/d', function (module, exports, require) {});
+// __LOADER__.source['/xxx/xxx/a'] = new Module('/xxx/xxx/a', function (module, exports, require) {});
+// __LOADER__.source['/xxx/xxx/b'] = new Module('/xxx/xxxx/b', function (module, exports, require) {});
+// __LOADER__.source['/xxx/xxx/c'] = new Module('/xxx/xxxx/c', function (module, exports, require) {});
+// __LOADER__.source['/xxx/xxx/d'] = new Module('/xxx/xxxx/d', function (module, exports, require) {});
 
 

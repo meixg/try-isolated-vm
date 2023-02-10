@@ -22,7 +22,7 @@ async function createIsolateWithInspector(codes) {
     startInspector(isolate)
     const context = await isolate.createContext({ inspector: true })
     for (const code of codes) {
-        const script = await isolate.compileScript(code.code, { filename: code.filename })
+        const script = await isolate.compileScript(code.code, { filename: code.filename, lineOffset: code.lineOffset, columnOffset: code.columnOffset })
         await script.run(context)
     }
 
